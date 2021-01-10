@@ -1,0 +1,7 @@
+BANCO HILOS: 
+
+Este programa es una simulacion de movimientos de dinero de una cuenta a otra. Todas las cuentas comienzan con 2000 euros. Hay 100 cuentas en el banco por ende el total es de 200000 euros. 
+	Cada transacion es un hilo de ejecucion. Uno de los problemas que encontre al usar hilos fue que varios hilos usaban la misma cuenta al mismo tiempo. La manera de solucionar esto que use fue usando la interfaz ReentrantLock. Con la cual pude administar la cantidad de ejecuciones del mismo proceso. 
+	Otro problema que encontre fue que cuando las cuentas no tenian saldo suficiente para realizar la transacion pedida los hilos morian sin cumplir su funcion para resolver esto use la clase Condition. la cual tiene los metodos signalAll() y await() con los cuales se puede dormir los hilos y volver a despertar. De esta manera en caso de que una cuenta no cuente con el momnto suficiente puede ser dormido y ser utilizado cuando ya tenga el monto suficiente.
+	Este es un pequeno resumen de los problemas que tuve que afrontar a la hora de hacer el demo. dejo adjunto el repositorio de en GitHub
+	
